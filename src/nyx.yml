@@ -8,37 +8,331 @@ semanticHighlighting: true
 nyx:
   base:
     - &BG         '#121122'
-    - &FG         ''
-    - &SELECTION  ''
+    - &FG         '#F8F8F2' # nc
+    - &SELECTION  '#44475A' # nc
     - &COMMENT    '#565095'
-    - &CYAN       ''
-    - &GREEN      ''
-    - &ORANGE     ''
-    - &PINK       ''
-    - &PURPLE     ''
-    - &RED        ''
-    - &YELLOW     ''
+    - &CYAN       '#8BE9FD' # nc
+    - &GREEN      '#50FA7B' # nc
+    - &ORANGE     '#FFB86C' # nc
+    - &PINK       '#FF79C6' # nc
+    - &PURPLE     '#BD93F9' # nc
+    - &RED        '#FF5555' # nc
+    - &YELLOW     '#F1FA8C' # nc
   ansi:
-    - &COLOR0 ''
+    - &COLOR0     '#21222C' # nc
+    - &COLOR1     '#FF5555' # nc
+    - &COLOR2     '#50FA7B' # nc
+    - &COLOR3     '#F1FA8C' # nc
+    - &COLOR4     '#BD93F9' # nc
+    - &COLOR5     '#FF79C6' # nc
+    - &COLOR6     '#8BE9FD' # nc
+    - &COLOR7     '#F8F8F2' # nc
+    - &COLOR8     '#6272A4' # nc
+    - &COLOR9     '#FF6E6E' # nc
+    - &COLOR10    '#69FF94' # nc
+    - &COLOR11    '#FFFFA5' # nc
+    - &COLOR12    '#D6ACFF' # nc
+    - &COLOR13    '#FF92DF' # nc
+    - &COLOR14    '#A4FFFF' # nc
+    - &COLOR15    '#FFFFFF' # nc
   other:
-    - &WHITE '#FFFFFF'
+    - &LineHighlight  '#44475A75' # nc
+    - &NonText        '#FFFFFF1A' # nc
+    - &WHITE          '#FFFFFF'
+    - &TAB_DROP_BG    '#44475A70' # nc
+    # UI Variants
+    - &BGLighter     '#424450'  # nc
+    - &BGLight       '#343746'  # nc
+    - &BGDark        '#21222C'  # nc
+    - &BGDarker      '#191A21'  # nc
 
 # User Interface (Reference: https://code.visualstudio.com/docs/getstarted/theme-color-reference)
 colors:
+  # Integrated Terminal Colors
+  terminal.background: *BG
+  terminal.foreground: *FG
+  terminal.ansiBrightBlack: *COLOR8
+  terminal.ansiBrightRed: *COLOR9
+  terminal.ansiBrightGreen: *COLOR10
+  terminal.ansiBrightYellow: *COLOR11
+  terminal.ansiBrightBlue: *COLOR12
+  terminal.ansiBrightMagenta: *COLOR13
+  terminal.ansiBrightCyan: *COLOR14
+  terminal.ansiBrightWhite: *COLOR15
+  terminal.ansiBlack: *COLOR0
+  terminal.ansiRed: *COLOR1
+  terminal.ansiGreen: *COLOR2
+  terminal.ansiYellow: *COLOR3
+  terminal.ansiBlue: *COLOR4
+  terminal.ansiMagenta: *COLOR5
+  terminal.ansiCyan: *COLOR6
+  terminal.ansiWhite: *COLOR7
+
+  # Contrast Colors
+  contrastBorder:                       # An extra border around elements to separate them from others for greater contrast
+  contrastActiveBorder:                 # An extra border around active elements to separate from others for greater contrast
+
+  # Base Colors
+  focusBorder: *COMMENT                 # Overall border color for focused elements. This color is only used if not overridden by a component
+  foreground: *FG                       # Overall foreground color. This color is only used if not overridden by a component
+  widget.shadow:                        # Shadow color of widgets such as Find/Replace inside the editor
+  selection.background: *PURPLE         # Background color of text selections in the workbench
+  errorForeground: *RED                 # Overall foreground color for error messages
+
+  # Button Control
+  button.background: *SELECTION         # Button background color
+  button.foreground: *FG                # Button foreground color
+  button.border:                        # Button border color
+  button.hoverBackground:               # Button background color when hovering
+
+  # Dropdown Control
+  dropdown.background: *BGLight
+  dropdown.border: *BGDarker
+  dropdown.foreground: *FG
+
+  # Input Control
+  input.background: *BG
+  input.foreground: *FG
+  input.border: *BGDarker
+  input.placeholderForeground: *PURPLE
+  inputOption.activeBorder: *COMMENT
+  inputValidation.infoForeground:
+  inputValidation.infoBackground:
+  inputValidation.infoBorder: *PINK
+  inputValidation.warningForeground:
+  inputValidation.warningBackground:
+  inputValidation.warningBorder: *ORANGE
+  inputValidation.errorForeground:
+  inputValidation.errorBackground:
+  inputValidation.errorBorder: *RED
+
+  # Scroll Bar Control
+  scrollbar.shadow:
+  scrollbarSlider.activeBackground:
+  scrollbarSlider.background:
+  scrollbarSlider.hoverBackground:
+
+  # Badge
+  badge.foreground: *FG
+  badge.background: *SELECTION
+
+  # Progress Bar
+  progressBar.background: *PINK
+
+  # List & Trees
+  list.activeSelectionBackground: *SELECTION
+  list.activeSelectionForeground: *FG
+  list.dropBackground: *SELECTION
+  list.focusBackground: *LineHighlight
+  list.highlightForeground: *CYAN
+  list.hoverBackground: *LineHighlight
+  list.inactiveSelectionBackground: *LineHighlight
+  list.inactiveSelectionForeground:
+  list.warningForeground: *ORANGE
+  list.errorForeground: *RED
+  list.hoverForeground:
+  list.focusForeground:
+
+  # Activity Bar
+  activityBar.background: *BGLight
+  activityBar.inactiveForeground: *COMMENT
+  activityBar.dropBackground:
+  activityBar.foreground: *FG
+  activityBar.border:
+  activityBar.activeBorder: !alpha [*PINK, 80]
+  activityBar.activeBackground: !alpha [*PURPLE, 10]
+  activityBarBadge.background: *PINK
+  activityBarBadge.foreground: *FG
+
+  # Side Bar
+  sideBar.background: *BGDark
+  sideBar.foreground:
+  sideBar.border:
+  sideBarTitle.foreground: *FG
+  sideBarSectionHeader.background: *BG
+  sideBarSectionHeader.foreground:
+  sideBarSectionHeader.border: *BGDarker
+
+  # Editor Group & Tabs
+  editorGroup.background:
+  editorGroup.border: *PURPLE
+  editorGroup.dropBackground: *TAB_DROP_BG
+  editorGroupHeader.noTabsBackground:
+  editorGroupHeader.tabsBackground: *BGDarker
+  editorGroupHeader.tabsBorder:
+  tab.activeBackground: *BG
+  tab.activeForeground: *FG
+  tab.border: *BGDarker
+  tab.activeBorderTop: !alpha [*PINK, 80]
+  tab.activeBorder:
+  tab.unfocusedActiveBorder:
+  tab.inactiveBackground: *BGDark
+  tab.inactiveForeground: *COMMENT
+  tab.unfocusedActiveForeground:
+  tab.unfocusedInactiveForeground:
+
   # Editor Colors
   editor.background: *BG
   editorLineNumber.foreground: *COMMENT
   editorCursor.foreground:
 
+  editor.selectionBackground: *SELECTION
+  editor.selectionHighlightBackground: *BGLighter
+  editor.inactiveSelectionBackground:
+  editor.foldBackground: !alpha [*BGDark, 50]
+
+  editor.wordHighlightBackground: !alpha [*CYAN, 50]
+  editor.wordHighlightStrongBackground: !alpha [*GREEN, 50]
+
+  editor.findMatchBackground: !alpha [*ORANGE, 80]
+  editor.findMatchHighlightBackground: !alpha [*WHITE, 40]
+  editor.findRangeHighlightBackground: *LineHighlight
+
+  editor.hoverHighlightBackground: !alpha [*CYAN, 50]
+
+  editor.lineHighlightBackground:
+  editor.lineHighlightBorder: *SELECTION
+
+  editorLink.activeForeground: *CYAN
+  editor.rangeHighlightBackground: !alpha [*PURPLE, 15]
+
+  editor.snippetTabstopHighlightBackground: *BG
+  editor.snippetTabstopHighlightBorder: *COMMENT
+  editor.snippetFinalTabstopHighlightBackground: *BG
+  editor.snippetFinalTabstopHighlightBorder: *GREEN
+
+  editorWhitespace.foreground: *NonText
+  editorIndentGuide.background: *NonText
+  editorIndentGuide.activeBackground: !alpha [*WHITE, 45]
+  editorRuler.foreground: *NonText
+
+  editorCodeLens.foreground: *COMMENT
+
+  editorBracketMatch.background:
+  editorBracketMatch.border:
+
+  editorBracketHighlight.foreground1: *FG
+  editorBracketHighlight.foreground2: *PINK
+  editorBracketHighlight.foreground3: *CYAN
+  editorBracketHighlight.foreground4: *GREEN
+  editorBracketHighlight.foreground5: *PURPLE
+  editorBracketHighlight.foreground6: *ORANGE
+  editorBracketHighlight.unexpectedBracket.foreground: *RED
+
+  editorOverviewRuler.border: *BGDarker
+  editorOverviewRuler.findMatchForeground:
+  editorOverviewRuler.rangeHighlightForeground:
+  editorOverviewRuler.selectionHighlightForeground: *ORANGE
+  editorOverviewRuler.wordHighlightForeground: *CYAN
+  editorOverviewRuler.wordHighlightStrongForeground: *GREEN
+  editorOverviewRuler.modifiedForeground: !alpha [*CYAN, 80]
+  editorOverviewRuler.addedForeground: !alpha [*GREEN, 80]
+  editorOverviewRuler.deletedForeground: !alpha [*RED, 80]
+  editorOverviewRuler.errorForeground: !alpha [*RED, 80]
+  editorOverviewRuler.warningForeground: !alpha [*ORANGE, 80]
+  editorOverviewRuler.infoForeground: !alpha [*CYAN, 80]
+
+  editorError.foreground: *RED
+  editorError.border:
+  editorWarning.foreground: *CYAN
+  editorWarning.border:
+
+  editorGutter.background:
+  editorGutter.modifiedBackground: !alpha [*CYAN, 80]
+  editorGutter.addedBackground: !alpha [*GREEN, 80]
+  editorGutter.deletedBackground: !alpha [*RED, 80]
+
+  # Explorer Colors
+  gitDecoration.modifiedResourceForeground: *CYAN
+  gitDecoration.deletedResourceForeground: *RED
+  gitDecoration.untrackedResourceForeground: *GREEN
+  gitDecoration.ignoredResourceForeground: *COMMENT
+  gitDecoration.conflictingResourceForeground: *ORANGE
+
+  # Diff Editor Colors
+  diffEditor.insertedTextBackground: !alpha [*GREEN, 20]
+  diffEditor.insertedTextBorder:
+  diffEditor.removedTextBackground: !alpha [*RED, 50]
+  diffEditor.removedTextBorder:
+  inlineChat.regionHighlight: *BGLight
+
+  # Editor Widget Colors
+  editorWidget.background: *BGDark
+  editorWidgetBorder:
+
+  editorSuggestWidget.background: *BGDark
+  editorSuggestWidget.border:
+  editorSuggestWidget.foreground: *FG
+  editorSuggestWidget.highlightForeground:
+  editorSuggestWidget.selectedBackground: *SELECTION
+
+  editorHoverWidget.background: *BG
+  editorHoverWidget.border: *COMMENT
+
+  debugExceptionWidget.background:
+  debugExceptionWidget.border:
+
+  editorMarkerNavigation.background: *BGDark
+  editorMarkerNavigationError.background:
+  editorMarkerNavigationWarning.background:
+
+  # Peek View Colors
+  peekView.border: *SELECTION
+  peekViewEditor.background: *BG
+  peekViewEditorGutter.background:
+  peekViewEditor.matchHighlightBackground: !alpha [*YELLOW, 80]
+  peekViewResult.background: *BGDark
+  peekViewResult.fileForeground: *FG
+  peekViewResult.lineForeground: *FG
+  peekViewResult.matchHighlightBackground: !alpha [*YELLOW, 80]
+  peekViewResult.selectionBackground: *SELECTION
+  peekViewResult.selectionForeground: *FG
+  peekViewTitle.background: *BGDarker
+  peekViewTitleDescription.foreground: *COMMENT
+  peekViewTitleLabel.foreground: *FG
+
+  # Merge Conflicts
+  merge.currentHeaderBackground: !alpha [*GREEN, 90]
+  merge.currentContentBackground:
+  merge.incomingHeaderBackground: !alpha [*PURPLE, 90]
+  merge.incomingContentBackground:
+  merge.border:
+  editorOverviewRuler.currentContentForeground: *GREEN
+  editorOverviewRuler.incomingContentForeground: *PURPLE
+
+  # Panel Colors
+  panel.background: *BG
+  panel.broder: *PURPLE
+  panelTitle.activeBorder: *PINK
+  panelTitle.activeForeground: *FG
+  panelTitle.inactiveForeground: *COMMENT
+
+  # Status Bar Colors
+  statusBar.background: *BGDarker
+  statusBar.foreground: *FG
+  statusBar.debuggingBackground: *RED
+  statusBar.debuggingForeground: *BGDarker
+  statusBar.noFolderBackground: *BGDarker
+  statusBar.noFolderForeground: *FG
+  statusBarItem.activeBackground:
+  statusBarItem.hoverBackground:
+  statusBarItem.prominentBackground: *RED
+  statusBarItem.prominentHoverBackground: *ORANGE
+  statusBarItem.remoteForeground: *BG
+  statusBarItem.remoteBackground: *PURPLE
+  statusBar.borders:
+
+  # Title Bar Colors (MacOS Only)
+
 # =============================================================================
 # Comments
 # =============================================================================
-
-- name: Comments
-  scope:
-  - comment
-  - punctuation.definition.comment
-  - unused.comment
-  - wildcard.comment
-  settings:
-    foreground: *COMMENT
+tokenColors:
+  - name: Comments
+    scope:
+    - comment
+    - punctuation.definition.comment
+    - unused.comment
+    - wildcard.comment
+    settings:
+      foreground: *COMMENT
