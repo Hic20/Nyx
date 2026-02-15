@@ -5,9 +5,22 @@
   "description": "A dark theme inspired by the colors of Nyx.",
   "publisher": "Hic20",
   "license": "MIT",
+  "scripts": {
+    "build": "node ./scripts/build.js",
+    "lint": "node ./scripts/lint.js",
+    "package": "vsce package -o ./bin/nyx.vsix",
+    "vscode:prepublish": "npm run build",
+    "vsce-publish": "vsce publish"
+  },
+  "maintainers": [
+    "Lars Heule"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Hic20/Nyx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hic20/nyx-theme/issues"
   },
   "engines": {
     "vscode": "^1.109.0"
@@ -24,5 +37,11 @@
         "path": "./themes/Nyx-color-theme.json"
       }
     ]
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.1",
+    "prettier": "^3.0.0",
+    "tinycolor2": "^1.6.0",
+    "vsce": "^1.97.0"
   }
 }
