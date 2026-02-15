@@ -34,7 +34,7 @@
       {
         "label": "Nyx Theme",
         "uiTheme": "vs-dark",
-        "path": "./themes/Nyx-color-theme.json"
+        "path": "./theme/nyx.json"
       }
     ]
   },
